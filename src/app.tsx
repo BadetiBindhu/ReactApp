@@ -1,19 +1,27 @@
 import 'src/global.css';
+import { collection, onSnapshot } from 'firebase/firestore';
 
+import { useEffect } from 'react';
 import Fab from '@mui/material/Fab';
 
-import { Router } from 'src/routes/sections';
+import { AppRouter } from 'src/routes/sections';
 
 import { useScrollToTop } from 'src/hooks/use-scroll-to-top';
 
 import { ThemeProvider } from 'src/theme/theme-provider';
 
 import { Iconify } from 'src/components/iconify';
+import {db} from "./firestore";
 
 // ----------------------------------------------------------------------
 
 export default function App() {
   useScrollToTop();
+  useEffect(()=>{
+    onSnapshot(collection(db,"studentlist"),(snapshot)=>{
+      console.log("docs",snapshot.docs.map(doc=>doc.data()));
+    });
+  })
 
   const githubButton = (
     <Fab
@@ -37,7 +45,7 @@ export default function App() {
 
   return (
     <ThemeProvider>
-      <Router />
+      <AppRouter />
       {githubButton}
     </ThemeProvider>
   );
