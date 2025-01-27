@@ -10,7 +10,7 @@ function LoginPage(){
 
   const handleLogin = () => {
     // Perform login logic (e.g., validation)
-    if(email === "admin@123gmail.com" && password=== "admin@123")
+    if(email === "admin@123.com" && password=== "admin@123")
        navigate('/dashboard'); 
     else{
       alert("Invalid credentials");

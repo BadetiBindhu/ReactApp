@@ -231,7 +231,7 @@ function StudentForm(){
           id="Password"
           type="password"
          {...register("Password", { required:{value:true,message: "Password is required"},
-                                    pattern:{value:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/ ,message:"Incorrect email format"}}
+                                    }
                                   )}
         />
         </label>
